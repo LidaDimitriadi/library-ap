@@ -1,27 +1,29 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	//isDisabled: true,
-
-	isDisabled: Ember.computed('isDisabled', function() {
-		if (this.get('emailAddress') === '') {
-			this.isDisabled = true;
-			console.log("it is active");
-		}
-		else {
-			this.isDisabled = false;
-			console.log("it is disabled");
-		}
-	}),
-
 
 	emailAddress: '',
+	responseMessage: '',
 
-	actualEmailAddress: Ember.computed('emailAddress', function() {
-		console.log('email address is: ', this.get('emailAddress'));
-	}),
+	//tsekarei an uparxei email kai an einai valid
+	//an einai valid to isDisabled einai false
+	//alliws an den einai valid, to isDisabled einai true!!
+	//!!!
+	isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+	isDisabled: Ember.computed.not('isValid'),
 
-	emailAddressChanged: Ember.observer('emailAddress', function() {
-		console.log('email changed to: ', this.get('emailAddress'));
-	})
+	actions: {
+
+	   saveInvitation() {
+	      const email = this.get('emailAddress');
+
+	      const newInvitation = this.store.createRecord('invitation', { email: email });
+	      newInvitation.save();
+
+	      this.set('responseMessage', `Thank you! We have just saved your email address: ${this.get('emailAddress')}`);
+	      this.set('emailAddress', '');
+	    }
+    }
+
+
 });
