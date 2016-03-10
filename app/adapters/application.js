@@ -1,5 +1,8 @@
-import DS from 'ember-data';
+import Ember from 'ember';
+import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-export default DS.FirebaseAdapter.extend({  
-                firebase: new window.Firebase('https://library-app-lida.firebaseio.com/')
+const { inject } = Ember;
+
+export default FirebaseAdapter.extend({
+  firebase: inject.service(),
 });
