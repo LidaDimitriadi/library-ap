@@ -15,26 +15,23 @@ export default Ember.Controller.extend({
 	actions: {
 
 		saveMessage() {
-			alert(`Thank you ${this.get('emailAddress')} for your message: ${this.get('message')}`);
-			this.set('responceMessage', 'We got your message and we will be in touch soon!');
-			this.set('emailAddress', '');
-			this.set('message', '');
+			const email = this.get('emailAddress');
+			const message = this.get('message');
+
+			const newMessage = this.store.createRecord('contact', {
+				email: email,
+				message: message
+			});
+
+			newMessage.save().then((responce) => {
+				this.set('responceMessage', 'We got your message and we will be in touch soon!');
+				this.set('emailAddress', '');
+				this.set('message', '');
+			});
+
 		}
 
-	},
-
-	
-
-	/*document.getElementById('email').addEventListener('keyup', function() {
-		console.log("in event listener");
-		var myClass = " has-success has-feedback";
-		var element = document.getElementById('email');
-		if (this.get(validEmail)) {
-			element.className += myClass;
-			console.log(element.className);
-		}
-	})
-*/
+	}
 
 });
 

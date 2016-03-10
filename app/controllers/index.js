@@ -23,7 +23,6 @@ export default Ember.Controller.extend({
 
 	      newInvitation.save().then((response) => {
 	      	this.set('responseMessage', `Thank you! We have just saved your email address: ${this.get('emailAddress')}`);
-	        console.log(this.get('responseMessage'));
 	        this.set('emailAddress', '');
 	      });
 
