@@ -1,0 +1,11 @@
+{
+  
+      "firebase": "library-app-lida",
+ 
+      "public": "dist",
+  
+      "rewrites": [{
+                "source": "**",
+                "destination": "/index.html"
+      }]
+}

@@ -11,7 +11,7 @@
     {{#each model as |invitation|}}
         <tr>
             <th>{{invitation.id}}</th>
-            <td>{{invitation.email}}</td>
+            <td>{{invitation.email}} <button class="btn btn-danger btn-xs btn-right" {{action 'deleteInvitation' invitation}}>Delete</button></td>
         </tr>
     {{/each}}
 
