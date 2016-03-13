@@ -11,9 +11,15 @@ export default Ember.Route.extend({
 			newMessage.save().then((responce) => {
 				this.controller.set('model.responseMessage', 'We got your message and we will be in touch soon!');
 				console.log(this.controller.get('model.responseMessage'));
-				this.controller.set('model.email', '');
-				this.controller.set('model.message', '');
 			});
+		},
+
+		willTransition() {
+			let model = this.controller.get('model');
+
+	        if (model.get('isNew')) {
+	        	model.destroyRecord();
+	        }
 		}
 	}
 });
