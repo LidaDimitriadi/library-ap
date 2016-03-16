@@ -1,0 +1,17 @@
+<div class="panel panel-default library-item">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{item.name}}</h3>
+    </div>
+    <div class="panel-body">
+        <p>Address: {{item.address}}</p>
+        <p>Phone: {{item.phone}}</p>
+    </div>
+    <div class="panel-footer text-right">
+    	<!--to yield pairnei ton kwdika pou exw sto template pou kalei to component
+		dhladh meta3y twn {{#library-item}}{{/library-item}}. Auto to kanw giati
+		to component den exei epafh me ta upoloipa kommatia ths efarmoghs enw sto index.hbs 
+		exw prosbash sto router kai se ola. px kalw thn deleteLibrary().
+    	-->
+    	{{yield}}
+    </div>
+</div>
