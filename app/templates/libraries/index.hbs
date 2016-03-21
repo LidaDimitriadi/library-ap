@@ -10,5 +10,8 @@
         <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
       {{/library-item}}  
     </div>
+    {{#if model.isUpdating}}
+      {{bounce-loading}}
+    {{/if}}
   {{/each}}
 </div>
