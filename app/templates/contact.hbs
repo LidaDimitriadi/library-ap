@@ -1,31 +1,32 @@
 <h1>Contact Page</h1>
 
-<form id="myForm">
-	<div class="form-group has-feedback {{if model.validEmail 'has-success'}}">
-		<label class="control-label" for="email">Please give your email</label>
-    	{{input type="email" id="email" aria-describedby="emailAddress" value=model.email class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group has-feedback {{if model.validEmail 'has-success'}}">
+			<label class="control-label" for="email">Please give your email</label>
+	    	{{input type="email" id="email" aria-describedby="emailAddress" value=model.email class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
 
-		{{#if model.validEmail}} 
-      		<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-			<span id="emailAddress" class="sr-only">(success)</span>
-		{{/if}}
-    </div>
-    <div class="form-group has-feedback {{if model.validMessage 'has-success'}}">
-    	<label class="control-label" for="message">Please write your message</label>
-	   	{{textarea value=model.message class="form-control" placeholder="Please type your message (at least 5 characters)." rows="7" autofocus="autofocus"}}
+			{{#if model.validEmail}} 
+	      		<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				<span id="emailAddress" class="sr-only">(success)</span>
+			{{/if}}
+	    </div>
+	    <div class="form-group has-feedback {{if model.validMessage 'has-success'}}">
+	    	<label class="control-label" for="message">Please write your message</label>
+		   	{{textarea value=model.message class="form-control" placeholder="Please type your message (at least 5 characters)." rows="7" autofocus="autofocus"}}
 
-		{{#if model.validMessage}} 
-      		<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-			<span id="emailAddress" class="sr-only">(success)</span>
-		{{/if}}	   	
+			{{#if model.validMessage}} 
+	      		<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				<span id="emailAddress" class="sr-only">(success)</span>
+			{{/if}}	   	
+		</div>
+
+		<!--to isDisabled einai boolean variable mesa ston controller tou sugkekrimenou template-->
+		<div class="col-md-4 btn-left">
+			<button class="btn btn-primary btn-md btn-block" disabled={{isDisabled}} {{action 'saveMessage' model }}>Send message</button>
+		</div>
 	</div>
-	<div class="form-group form-group-lg">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1">
-    	<!--to isDisabled einai boolean variable mesa ston controller tou sugkekrimenou template-->
-        <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveMessage' model }}>Send message</button>
-    	</div>
-	</div>
-</form>
+</div>
 
 {{#if model.responseMessage}}
     <div class="alert alert-success">{{model.responseMessage}}</div>

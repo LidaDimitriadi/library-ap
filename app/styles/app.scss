@@ -20,3 +20,16 @@ html {
 .btn-right {
 	float: right;
 }
+
+.btn-left {
+	float: left;
+	padding-left: 0px;
+}
+
+.label-fade {
+  opacity: 0;
+  @include transition(all 0.5s);
+  &.label-show {
+    opacity: 1;
+  }
+}
