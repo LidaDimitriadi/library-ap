@@ -6,12 +6,15 @@
         <p>Address: {{item.address}}</p>
         <p>Phone: {{item.phone}}</p>
     </div>
-    <div class="panel-footer text-right">
-    	<!--to yield pairnei ton kwdika pou exw sto template pou kalei to component
-		dhladh meta3y twn {{#library-item}}{{/library-item}}. Auto to kanw giati
-		to component den exei epafh me ta upoloipa kommatia ths efarmoghs enw sto index.hbs 
-		exw prosbash sto router kai se ola. px kalw thn deleteLibrary().
-    	-->
-    	{{yield}}
+    <div class="panel-footer">
+        Number of books: <span class="badge"> {{item.books.length}} </span>
+        <div class="pull-right">
+        	<!--to yield pairnei ton kwdika pou exw sto template pou kalei to component
+    		dhladh meta3y twn {{#library-item}}{{/library-item}}. Auto to kanw giati
+    		to component den exei epafh me ta upoloipa kommatia ths efarmoghs enw sto index.hbs 
+    		exw prosbash sto router kai se ola. px kalw thn deleteLibrary().
+        	-->
+        	{{yield}}
+        </div>
     </div>
 </div>

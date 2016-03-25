@@ -5,6 +5,7 @@
       <!--link sto component library-item kai dhlwnw oti to item
       sto component einai to library model-->
       {{#library-item item=library}}
+        {{#link-to 'libraries.show' library.id class='btn btn-info btn-xs'}}Show Library{{/link-to}}
         {{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
         <!--dinw sthn deleteLibrary, parametro thn library poy 8elw na diagrapsw, dhladh auth pou pathse o xthsths-->
         <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>

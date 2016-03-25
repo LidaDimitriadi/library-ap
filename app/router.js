@@ -16,8 +16,10 @@ Router.map(function() {
   });
 
   this.route('libraries', function() {
-  	this.route('new');
+    this.route('new');
     this.route('edit', { path: '/:library_id/edit' });
+    this.route('show', { path: '/:library_id/show' });
+    this.route('new-book', { path: '/:library_id/new-book' });
   });
 });
 

@@ -1,0 +1,22 @@
+<h2><strong>{{model.name}}</strong></h2><br>
+
+<h2>Books:</h2>
+
+{{#each model.books as |book|}}
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+	        	<h3 class="panel-title"><strong>{{book.title}}</strong></h3>
+	    	</div>
+			<div class="panel-body">
+				<p>Author: {{book.authorName}}</p>
+				<p>Release year: {{book.releaseYear}}</p>
+			</div>
+			<div class="panel-footer">
+				Property of: {{model.name}}
+			</div>
+		</div>
+	</div>	
+{{/each}}
+
+{{#link-to 'libraries.new-book' model.id class='btn btn-info btn-xs'}}Add new book to library{{/link-to}}
