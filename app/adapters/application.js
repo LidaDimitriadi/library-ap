@@ -5,5 +5,5 @@ import DS from 'ember-data';
 const { inject } = Ember;
 
 export default FirebaseAdapter.extend({
-  firebase: inject.service(),
+  firebase: new Firebase('https://LIBRARY-APP-LIDA.firebaseio.com/')
 });

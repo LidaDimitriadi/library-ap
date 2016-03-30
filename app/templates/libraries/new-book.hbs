@@ -9,7 +9,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Author</label>
         <div class="col-sm-10">
-          {{input type="text" value=author.name class="form-control" placeholder="The author of the book"}}
+          {{input type="text" value=authorName class="form-control" placeholder="The author of the book"}}
         </div>
     </div>
     <div class="form-group">
@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" {{action 'saveBook' book library author }}>Save book</button>
+            <button type="submit" class="btn btn-default" {{action 'saveBook' book library}}>Save book</button>
         </div>
     </div>
 </div>
